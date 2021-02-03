@@ -24,7 +24,6 @@ public class MyView{
         deleteBtn.setEnabled(false);
 
 
-//        JLabel filePath=new JLabel("select path to save.");
         JTextArea fileNameInput=new JTextArea();
         JLabel filePathLabel=new JLabel("path:");
         JButton filePathBtn=new JButton("select");
@@ -32,9 +31,7 @@ public class MyView{
         JLabel xlsLabel=new JLabel(".xlsx");
         JButton buildBtn=new JButton("build");
 
-//        JLabel notice=new JLabel("after click build, wait until notice. It takes about 5 sec per file");
         JLabel notice=new JLabel("<html>after click build, wait until notice!<br>It takes about 6 sec per file</html>");
-//        buildBtn.setEnabled(false);
         JLabel fileCnt=new JLabel("uploaded files: 0");
         title.setText("file name format ex) 000000_00ㅇㅇㅇ(ㅁㅁㅁ)");
         title.setFont(new Font("arial",Font.PLAIN,14));
@@ -59,13 +56,11 @@ public class MyView{
                         for(File file:files){
                             String fileName=file.getName();
 
-//                            int idx = fileName .lastIndexOf(".");
-//                            String fileName_=fileName.substring(0,idx);
+
                             fileList.add(fileName);
                         }
 
-//                      for(String str:fileList)
-//                          System.out.println(str);
+
                         model=new DefaultListModel<String>();
                         for(String str:fileList)
                             model.addElement(str);
@@ -104,20 +99,7 @@ public class MyView{
 
             }
         });
-//        filePathBtn.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                JFileChooser pathSelector=new JFileChooser();
-//                pathSelector.setMultiSelectionEnabled(false);
-//                pathSelector.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-//                int returnVal=pathSelector.showOpenDialog(null);
-//                if(returnVal==JFileChooser.APPROVE_OPTION) {
-//                    File file = pathSelector.getSelectedFile();
-//                    filePath.setText(file.getAbsolutePath());
-//                }
-//
-//            }
-//        });
+
         buildBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -151,10 +133,6 @@ public class MyView{
 
         filePathLabel.setBounds(280,120,50,30);
         filePathLabel.setFont(new Font("arial",Font.PLAIN,17));
-//        filePathBtn.setBounds(330,120,70,30);
-//        filePathBtn.setFont(new Font("arial",Font.PLAIN,13));
-//        filePath.setBounds(410,120,250,30);
-//        filePath.setFont(new Font("arial",Font.PLAIN,13));
 
         fileNameLabel.setBounds(280,160,50,30);
         fileNameLabel.setFont(new Font("arial",Font.PLAIN,17));
@@ -170,21 +148,13 @@ public class MyView{
 
         scrollPane.setBounds(10,120,250,330);
         scrollPane.setViewportView(openList);
-//        openList.setBounds(10,120,250,330);
         fileCnt.setBounds(10,460,200,20);
 
         frame.add(notice);
         frame.add(fileCnt);
         frame.add(buildBtn);
-//        frame.add(fileNameInput);
-//        frame.add(xlsLabel);
-//        frame.add(filePath);
-//        frame.add(filePathBtn);
-//        frame.add(filePathLabel);
-//        frame.add(fileNameLabel);
 
         frame.add(scrollPane);
-//        frame.add(openList);
         frame.add(addBtn);
         frame.add(deleteBtn);
         frame.setBounds(20,40,650,520);
